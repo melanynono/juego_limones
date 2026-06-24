@@ -27,6 +27,13 @@ function moverIzquierda(){
 
 }
 
+//Mover dereha 
+
+function moverDerecha(){
+    personajeX=personajeX+10 ;
+    actualizarPantalla();
+}
+
 function actualizarPantalla(){
     limpiarCanva();
     dibujarSuelo();
