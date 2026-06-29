@@ -121,3 +121,16 @@ function detectarPiso (){
 
     }
 }
+
+function reiniciar (){
+    clearInterval(intervalo);
+    
+    vidas=3;
+    puntaje=0;
+    mostrarEnSpan("txtVidas", vidas);
+    mostrarEnSpan("txtPuntaje", puntaje);
+    limonY = 0;
+    limonX= canvas.width/2;
+    iniciar();
+
+}
