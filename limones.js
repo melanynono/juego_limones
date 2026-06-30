@@ -9,10 +9,8 @@ const ALTO_LIMON = 20;
 
 let personajeX = canvas.width / 2;
 let personajeY = canvas.height - (ALTURA_SUELO + ALTURA_PERSONAJE);
-
 let limonX = canvas.width / 2;
 let limonY = 0;
-
 let puntaje = 0;
 let vidas = 3;
 let velocidadCaida = 200;
@@ -20,13 +18,10 @@ let intervalo;
 
 function iniciar() {
     clearInterval(intervalo);
-
     intervalo = setInterval(bajarLimon, velocidadCaida);
-
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
-
     mostrarEnSpan("txtPuntaje", puntaje);
     mostrarEnSpan("txtVidas", vidas);
 }
@@ -45,7 +40,7 @@ function dibujarPersonaje() {
     ctx.fillStyle = "yellow";
     ctx.fillRect(
         personajeX,
-        personajeY,
+        personajeY,                        
         ANCHO_PERSONAJE,
         ALTURA_PERSONAJE
     );
@@ -94,7 +89,6 @@ function dibujarLimon() {
 
 function bajarLimon() {
     limonY = limonY + 10;
-
     actualizarPantalla();
     detectarAtrapado();
     detectarPiso();
@@ -132,13 +126,9 @@ function detectarAtrapado() {
 }
 
 function aparecerLimon() {
-    limonX = generarAleatorio(
-        0,
-        canvas.width - ANCHO_LIMON
+    limonX = generarAleatorio( 0,canvas.width - ANCHO_LIMON
     );
-
     limonY = 0;
-
     actualizarPantalla();
 }
 
@@ -156,7 +146,6 @@ function detectarPiso() {
 
 function reiniciar() {
     clearInterval(intervalo);
-
     vidas = 3;
     puntaje = 0;
     velocidadCaida = 200;
@@ -164,9 +153,8 @@ function reiniciar() {
     personajeY = canvas.height - (ALTURA_SUELO + ALTURA_PERSONAJE);
     limonX = canvas.width / 2;
     limonY = 0;
-
+    
     mostrarEnSpan("txtVidas", vidas);
     mostrarEnSpan("txtPuntaje", puntaje);
-
     iniciar();
 }
