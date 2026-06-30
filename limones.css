@@ -52,6 +52,23 @@ body::after {
   z-index: 1;
 }
 
+.logo-container {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 10;
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.logo-image {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
 .header-game {
   margin-bottom: 20px;
   animation: fadeInDown 0.8s ease-out;
@@ -402,8 +419,40 @@ canvas {
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
 /* Responsividad */
 @media (max-width: 700px) {
+  .logo-container {
+    position: static;
+    transform: none;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .logo-image {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+  
   body::before {
     font-size: 50px;
     top: 20px;
