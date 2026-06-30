@@ -120,7 +120,7 @@ function detectarAtrapado() {
 
         if (puntaje == 10) {
             clearInterval(intervalo);
-            alert("¡GANADOR! Atrapaste los limones, ahora haz una buena limonada");
+            alert("GANADOR! Atrapaste los limones, ahora haz una buena limonada");
         }
     }
 }
@@ -153,7 +153,7 @@ function reiniciar() {
     personajeY = canvas.height - (ALTURA_SUELO + ALTURA_PERSONAJE);
     limonX = canvas.width / 2;
     limonY = 0;
-    
+
     mostrarEnSpan("txtVidas", vidas);
     mostrarEnSpan("txtPuntaje", puntaje);
     iniciar();
