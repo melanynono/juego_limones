@@ -8,19 +8,37 @@
 </head>
 <body onload="iniciar()">
   <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Melany Nono</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
+    <div class="header-game">
+      <h1>🍋 Atrapar Limones 🍋</h1>
+      <p class="subtitle">Si del cielo te caen limones ..... </p>
+      <h2 class="author">Autor: Melany Nono</h2>
+    </div>
+    
+    <div class="game-wrapper">
+      <canvas id="areaJuego" width="600" height="400"></canvas>
+    </div>
     
     <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
+      <div class="stat-box">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-content">
+          <span class="stat-label">Puntaje</span>
+          <span class="stat-value" id="txtPuntaje">0</span>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">❤️</div>
+        <div class="stat-content">
+          <span class="stat-label">Vidas</span>
+          <span class="stat-value" id="txtVidas">3</span>
+        </div>
+      </div>
     </div>
+    
     <div class="botones">
-      <button onclick="moverIzquierda();">Izquierda</button>
-      <button onclick="moverDerecha();">Derecha</button>
-      <button onclick="reiniciar();">Reiniciar</button>
+      <button class="btn-control btn-left" onclick="moverIzquierda();">⬅️ Izquierda</button>
+      <button class="btn-control btn-right" onclick="moverDerecha();">Derecha ➡️</button>
+      <button class="btn-restart" onclick="reiniciar();">🔄 Reiniciar</button>
     </div>
   </div>
 

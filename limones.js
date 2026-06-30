@@ -4,8 +4,8 @@ let ctx = canvas.getContext("2d");
 const ALTURA_SUELO = 40;
 const ALTURA_PERSONAJE = 60;
 const ANCHO_PERSONAJE = 40;
-const ANCHO_LIMON = 20;
-const ALTO_LIMON = 20;
+const ANCHO_LIMON = 40;
+const ALTO_LIMON = 40;
 
 let personajeX = canvas.width / 2;
 let personajeY = canvas.height - (ALTURA_SUELO + ALTURA_PERSONAJE);
@@ -15,6 +15,10 @@ let puntaje = 0;
 let vidas = 3;
 let velocidadCaida = 200;
 let intervalo;
+
+// Cargar imagen del limón
+let imagenLimon = new Image();
+imagenLimon.src = "limon.png";
 
 function iniciar() {
     clearInterval(intervalo);
@@ -78,13 +82,14 @@ function limpiarCanva() {
 }
 
 function dibujarLimon() {
-    ctx.fillStyle = "pink";
-    ctx.fillRect(
-        limonX,
-        limonY,
-        ANCHO_LIMON,
-        ALTO_LIMON
-    );
+    // Dibujar la imagen del limón si está cargada
+    if (imagenLimon.complete) {
+        ctx.drawImage(imagenLimon, limonX, limonY, ANCHO_LIMON, ALTO_LIMON);
+    } else {
+        // Fallback: dibujar un cuadrado si la imagen no está cargada
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(limonX, limonY, ANCHO_LIMON, ALTO_LIMON);
+    }
 }
 
 function bajarLimon() {
